@@ -1,0 +1,20 @@
+# Use Ubuntu 22.04 as base image
+FROM ubuntu:22.04
+
+# Update Ubuntu Software repository
+RUN apt-get update
+
+# Install curl, iproute2, sshfs, unzip, less, groff
+RUN apt-get install -y curl iproute2 sshfs unzip less groff
+
+# Install kubectl
+RUN curl -LO "https://dl.k8s.io/release/v1.23.6/bin/linux/amd64/kubectl" \
+    && chmod +x kubectl \
+    && mv kubectl /usr/local/bin/
+
+# Install AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install \
+    && rm awscliv2.zip
+
