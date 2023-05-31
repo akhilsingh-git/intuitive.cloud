@@ -27,15 +27,21 @@ jobs:
 
     - name: Terraform Init
       id: init
-      run: terraform init
+      run: |
+        cd $GITHUB_WORKSPACE
+        terraform init
 
     - name: Terraform Validate
       id: validate
-      run: terraform validate -no-color
+      run: |
+        cd $GITHUB_WORKSPACE
+        terraform validate -no-color
 
     - name: Terraform Plan
       id: plan
-      run: terraform plan -no-color
+      run: |
+        cd $GITHUB_WORKSPACE
+        terraform plan -no-color
       continue-on-error: true
 
     - name: Terraform Apply
@@ -43,5 +49,7 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform apply -auto-approve -no-color
+      run: |
+        cd $GITHUB_WORKSPACE
+        terraform apply -auto-approve -no-color
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
