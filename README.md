@@ -16,13 +16,13 @@ docker ps
 
 To upload the image to ECR, you need to first create a repository in your ECR, then tag your image with the repository's URI, and finally push the image. Replace <region>, <account-id>, and <repository-name> with your specific values.
 
-# Authenticate Docker to your ECR registry
+ Authenticate Docker to your ECR registry
 aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region>.amazonaws.com
 
-# Tag your image
+ Tag your image
 docker tag my-image-name:latest <account-id>.dkr.ecr.<region>.amazonaws.com/<repository-name>:latest
 
-# Push your image to the ECR repository
+Push your image to the ECR repository
 docker push <account-id>.dkr.ecr.<region>.amazonaws.com/<repository-name>:latest
   
 For reference, please refer the screenshots
