@@ -14,12 +14,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Copy Terraform files
-      run: |
-        cp -R terraform/. $GITHUB_WORKSPACE
-
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
+
+    - name: Copy Terraform files
+      run: |
+        cp -R ${{ github.workspace }}/terraform/. $GITHUB_WORKSPACE
 
     - name: Terraform Format
       id: fmt
