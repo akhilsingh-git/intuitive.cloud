@@ -1,5 +1,5 @@
 # intuitive.cloud
-##For Docker,
+## For Docker,
 Navigate to docker folder and run docker build -t my-image-name .  For, running the docker image
 
 To list Docker images, you can use:
@@ -28,7 +28,7 @@ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/<repository-name>:latest
 For reference, please refer the screenshots
 
 
-##For Terraform,
+## For Terraform,
 Make sure you provide the pem file name that exists in us-west-2 and bucket name should be unique
 For running locally, make sure to have aws cli installed and configured and 
 using terraform.tfvars to make changes to variables
