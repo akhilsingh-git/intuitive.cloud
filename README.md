@@ -6,9 +6,16 @@ To list Docker images, you can use:
 
 docker images
 
+
+Create and Start a Container:
+
 To create and start a container from the image, you can use:
 
-docker run -it my-image-name
+docker run -it dockerfile
+
+To go inside the container:
+
+docker exec -it my-container bash
 
 To list running containers, you can use:
 
